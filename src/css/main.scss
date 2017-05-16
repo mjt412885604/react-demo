@@ -1,0 +1,536 @@
+$themeColor: #4A89DC;
+$yellowColor: #F3BA45;
+$redColor: #E95941;
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+ul,
+li,
+dt,
+dd,
+dl {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+input[type=number]::-webkit-textfield-decoration-container {
+    background-color: transparent;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input:disabled {
+    color: #626262;
+    -webkit-text-fill-color: #626262;
+    -webkit-opacity: 1;
+}
+
+input.Default:disabled {
+    color: #999;
+    -webkit-text-fill-color: #999;
+    -webkit-opacity: 1;
+}
+
+textarea {
+    resize: none;
+    font-size: 14px;
+    outline: none;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1; // fix 滑动几次后可滚动区域会卡住的问题
+}
+
+.page-enter {
+    z-index: 1024;
+    opacity: 0.01;
+    transform: translate3d(30%, 0, 0);
+    transition: all .5s ease;
+    &.page-enter-active {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.page-leave {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: all .2s ease;
+    &.page-leave-active {
+        opacity: 0.01;
+        transform: translate3d(20%, 0, 0);
+    }
+}
+
+.example {
+    opacity: 0.01;
+}
+
+.example-enter {
+    transform: translate3d(0, -50px, 0);
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.example-enter.example-enter-active {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+.example-leave {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.2s;
+}
+
+.example-leave.example-leave-active {
+    transform: translate3d(0, 0, 0);
+}
+
+.marginTop20px {
+    margin-top: 20px;
+}
+
+.witheColor {
+    color: #fff;
+}
+
+.blueColor {
+    color: $themeColor;
+}
+
+.padding10px {
+    padding: 10px;
+}
+
+.page-login {
+    .logo {
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        img {
+            width: 200px;
+        }
+        .back {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+    }
+    .submit {
+        padding: 20px;
+    }
+}
+
+// 首页
+.page-desktop {
+    .header {
+        background-color: $themeColor;
+        margin-bottom: 20px;
+        .header-name {
+            height: 90px;
+            line-height: 90px;
+            color: #fff;
+            font-size: 36px;
+            display: flex;
+            >div {
+                flex: 1;
+                display: flex;
+                align-items: center;
+            }
+            .name {
+                justify-content: center;
+            }
+            .msg {
+                justify-content: flex-end;
+                padding-right: 20px;
+            }
+        }
+    }
+    .glus-data {
+        display: flex;
+        padding: 50px 0;
+        >div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-right: 180px;
+            color: #fff;
+            font-size: 32px;
+            position: relative;
+            &::before {
+                content: '';
+                width: 140px;
+                height: 115px;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &:first-child::before {
+                background: url('../images/echarts1.png') center no-repeat;
+                background-size: cover;
+            }
+            &:last-child::before {
+                background: url('../images/echarts2.png') center no-repeat;
+                background-size: cover;
+            }
+            &:first-child {
+                border-right: 1px solid #AECAEF;
+            }
+            >p {
+                line-height: 1.5;
+            }
+            .data {
+                color: $yellowColor;
+                font-size: 44px;
+            }
+        }
+    }
+    .index-grid {
+        overflow: hidden;
+        background-color: #FFF;
+        .index-grid-list {
+            width: 33.3333333%;
+            float: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            font-size: 26px;
+            color: #626262;
+            position: relative;
+            &::before {
+                content: " ";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                height: 1px;
+                border-bottom: 1px solid #D9D9D9;
+                color: #D9D9D9;
+            }
+            &::after {
+                content: " ";
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 1px;
+                bottom: 0;
+                border-right: 1px solid #D9D9D9;
+                color: #D9D9D9;
+            }
+            >div {
+                padding-top: 15px;
+            }
+            &:active {
+                background-color: #ececec;
+            }
+        }
+    }
+}
+
+// 个人中心
+.page-mine {
+    .header {
+        display: flex;
+        align-items: center;
+        background-color: $themeColor;
+        padding: 60px 30px;
+        .photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid #d6d6d7;
+            margin: 0 20px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .phone {
+            flex: 1;
+            padding-right: 10px;
+            color: #fff;
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    .list {
+        margin-top: 20px;
+    }
+}
+
+.page-mineSet {
+    .input-name {
+        border: none;
+        width: 240px;
+        font-size: 30px;
+        text-align: right;
+        color: #828282;
+    }
+}
+
+.native-toast {
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1024;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .native-toast-msg {
+        padding: 30px;
+        max-width: 80%;
+        background-color: rgba(0, 0, 0, .8);
+        color: #fff;
+        font-size: 32px;
+        border-radius: 16px;
+        word-break: break-word;
+        text-align: center;
+        transform: translateY(-50%);
+        transition: transform .2s linear;
+        &.active {
+            transform: translateY(0);
+        }
+    }
+}
+
+.page-sport {
+    .sport-content {
+        padding: 0 20px;
+        .sport-list {
+            padding: 40px;
+            font-size: 32px;
+            color: #626262;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            display: flex;
+            >div {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                &:first-child {
+                    border-right: 1px solid #d6d6d7;
+                }
+                div {
+                    padding-top: 20px;
+                }
+            }
+            &:last-child {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.login-modal {
+    opacity: 0.01;
+}
+
+.login-modal-enter {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+    z-index: 1;
+}
+
+.login-modal-enter.login-modal-enter-active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.login-modal-leave {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.3s;
+}
+
+.login-modal-leave.login-modal-leave-active {
+    transform: scale(1.05);
+    opacity: 0.01;
+}
+
+.common-login {
+    position: relative;
+    .mask {
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1100;
+        background-color: rgba(0, 0, 0, .4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .login-content {
+            background-color: #fff;
+            width: 540px;
+            border-radius: 16px;
+            height: auto;
+            padding-top: 40px;
+            overflow: hidden;
+            .header {
+                font-size: 36px;
+                text-align: center;
+                padding: 12px 30px 30px;
+            }
+            .content {
+                font-size: 28px;
+                text-align: center;
+                padding: 0 30px 30px;
+                color: #828282;
+            }
+            .footer {
+                display: flex;
+                >a {
+                    flex: 1;
+                    padding: 30px 0;
+                    font-size: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #333;
+                    border-top: 1px solid #d6d6d7;
+                    &:last-child {
+                        color: rgb(233, 89, 65);
+                        border-left: 1px solid #d6d6d7;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.iscroll-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+    >div {
+        touch-action: none;
+        transform: translateZ(0);
+    }
+    .load-more {
+        padding: 40px;
+        text-align: center;
+        color: #828282;
+        font-size: 32px;
+        .icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            >span {
+                padding-left: 20px;
+            }
+        }
+    }
+}
+
+.recipes-content {
+    position: relative;
+    background-color: #fff;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 1px;
+        border-top: 1px solid #D9D9D9;
+        color: #D9D9D9;
+    }
+    &::after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        border-bottom: 1px solid #D9D9D9;
+        color: #D9D9D9;
+    }
+    .recipes-list {
+        display: flex;
+        padding: 30px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            right: 0;
+            height: 1px;
+            border-top: 1px solid #D9D9D9;
+            color: #D9D9D9;
+        }
+        .content {
+            flex: 1;
+            font-size: 32px;
+            color: #626262;
+        }
+        .footer {
+            padding-left: 30px;
+            color: $yellowColor;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
