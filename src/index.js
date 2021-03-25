@@ -19,7 +19,7 @@ import './css/main.scss'
 
 import Index from './components/index'
 import About from './components/about'
-import Login from './components/Login'
+import Login from './components/login'
 import Mine from './components/mine'
 import MineSet from './components/mineSet'
 import Sport from './components/sport'
